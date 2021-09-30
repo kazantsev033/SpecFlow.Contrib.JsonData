@@ -20,6 +20,7 @@ Scenario: Test CSV
 	Then the result should be 120
 
 @DataSource:TestData/Users.json
+@JsonArray:users
 Scenario: Test Json
 	Given the first number is 50
 	And the second number is 70
