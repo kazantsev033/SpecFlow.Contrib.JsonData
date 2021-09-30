@@ -17,4 +17,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
     - name: Test
-      run: dotnet test --verbosity normal SpecFlow.Contrib.JsonData.SpecNUnitTests/SpecFlow.Contrib.JsonData.SpecNUnitTests.csproj
+      run: dotnet test SpecFlow.Contrib.JsonData.SpecNUnitTests/SpecFlow.Contrib.JsonData.SpecNUnitTests.csproj
