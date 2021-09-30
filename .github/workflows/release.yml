@@ -1,8 +1,8 @@
-name: .NET - Release
+name: .NET - CI - Release
 
 on:
   workflow_run:
-    workflows: ["NetLicensing C# Client - CI"]
+    workflows: [".NET - CI"]
     branches: [ master ]
     types:
       - completed
@@ -20,12 +20,10 @@ jobs:
       run: dotnet restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
     - name: Build
       run: dotnet build --configuration Release --no-restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
-    - name: Test
-      run: dotnet test --configuration Release
     - name: Publish to NuGet
       uses: brandedoutcast/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: NetLicensingClient/NetLicensingClient.csproj
+        PROJECT_FILE_PATH: SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
         VERSION_REGEX: '^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$'
         TAG_FORMAT: '*'
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
