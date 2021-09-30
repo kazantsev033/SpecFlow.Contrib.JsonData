@@ -18,3 +18,14 @@ jobs:
       run: dotnet build --configuration Release --no-restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
     - name: Test
       run: dotnet test --configuration Release
+    - name: Publish to NuGet
+      uses: brandedoutcast/publish-nuget@v2
+      on:
+        branches: [ master ]
+        types:
+          - completed
+      with:
+        PROJECT_FILE_PATH: SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
+        VERSION_REGEX: '^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$'
+        TAG_FORMAT: '*'
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
