@@ -1,14 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net471;netcoreapp2.1</TargetFrameworks>
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <NuspecFile>$(MSBuildThisFileDirectory)SpecFlow.Contrib.JsonData.nuspec</NuspecFile>
-	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net471;netcoreapp2.1</TargetFrameworks>
+		<LangVersion>9.0</LangVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<NuspecFile>$(MSBuildThisFileDirectory)SpecFlow.Contrib.JsonData.nuspec</NuspecFile>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Nuget\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Nuget\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CsvHelper" Version="27.1.1" />
+		<PackageReference Include="ExcelDataReader" Version="3.6.0" />
+		<PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+		<PackageReference Include="SpecFlow.CustomPlugin" Version="3.9.22" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+	</ItemGroup>
 
 </Project>
