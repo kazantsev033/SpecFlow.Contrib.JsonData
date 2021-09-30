@@ -9,6 +9,6 @@
 		<ItemGroup>
 			<GeneratedNupkgs Include="$(PackageOutputAbsolutePath)\*.nupkg"/>
 		</ItemGroup>
-		<Move SourceFiles="@(GeneratedNupkgs)" DestinationFolder="$(MSBuildThisFileDirectory)SpecFlow.Contrib.JsonData.SpecFlowPlugin\Nuget" />
+		<Copy SourceFiles="@(GeneratedNupkgs)" DestinationFolder="$(MSBuildThisFileDirectory)SpecFlow.Contrib.JsonData.SpecFlowPlugin\Nuget" />
 	</Target>
 </Project>
