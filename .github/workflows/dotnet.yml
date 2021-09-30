@@ -13,8 +13,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --verbosity normal SpecFlow.Contrib.JsonData.SpecNUnitTests/SpecFlow.Contrib.JsonData.SpecNUnitTests.csproj
