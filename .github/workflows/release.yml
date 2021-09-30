@@ -1,9 +1,11 @@
 name: .NET - Release
 
 on:
-  branches: [ master ]
-  types:
-    - completed
+  push:
+    branches: 
+      - master
+    types:
+      - completed
 
 jobs:
   publish-nuget:
