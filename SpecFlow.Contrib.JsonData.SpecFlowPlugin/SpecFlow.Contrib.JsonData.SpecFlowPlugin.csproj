@@ -4,8 +4,10 @@
 		<TargetFrameworks>net471;netcoreapp2.1</TargetFrameworks>
 		<LangVersion>9.0</LangVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<PackageVersion>1.0.0</PackageVersion>
 		<NuspecFile>$(MSBuildThisFileDirectory)SpecFlow.Contrib.JsonData.nuspec</NuspecFile>
+		<NuspecProperties>version=$(PackageVersion)</NuspecProperties>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
 	<ItemGroup>

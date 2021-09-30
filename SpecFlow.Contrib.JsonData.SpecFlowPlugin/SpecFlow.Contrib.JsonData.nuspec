@@ -1,7 +1,7 @@
 ﻿<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata>
 		<id>SpecFlow.Contrib.JsonData</id>
-		<version>1.0.0</version>
+		<version>$version$</version>
 		<title>SpecFlow.Contrib.JsonData</title>
 		<authors>kazantsev-v</authors>
 		<owners>kazantsev-v</owners>
