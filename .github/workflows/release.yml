@@ -1,9 +1,9 @@
 name: .NET - Release
 
 on:
-  push:
-    branches: 
-      - master
+  workflow_run:
+    workflows: ["NetLicensing C# Client - CI"]
+    branches: [ master ]
     types:
       - completed
 
