@@ -17,10 +17,12 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
         {
             if (jsonArray is null)
             {
-                throw new ExternalDataPluginException($"Tag @JsonArray is not specified or empty");
+                throw new ExternalDataPluginException($"Tag @JsonArray is not specified");
             }
-            JObject originalJson = JObject.Parse(ReadTextFileContent(filePath));
+            
+            JObject originalJson = JObject.Parse(ReadTextFileContent(filePath));            
             JArray jArray;
+            
             try
             {
                 jArray = originalJson[jsonArray].ToObject<JArray>();
@@ -29,6 +31,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             {
                 throw new ExternalDataPluginException($"Unable to find array {jsonArray} in json file: {filePath}");
             }
+            
             List<string> header = jArray[0].ToObject<JObject>().Properties().Select(p => p.Name).ToList();
             
             var dataTable = new DataTable(header.ToArray());
