@@ -15,6 +15,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
     - name: Build
-      run: dotnet build --no-restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
+      run: dotnet build --configuration Release --no-restore SpecFlow.Contrib.JsonData.SpecFlowPlugin/SpecFlow.Contrib.JsonData.SpecFlowPlugin.csproj
     - name: Test
-      run: dotnet test SpecFlow.Contrib.JsonData.SpecNUnitTests/SpecFlow.Contrib.JsonData.SpecNUnitTests.csproj
+      run: dotnet test --configuration Release
