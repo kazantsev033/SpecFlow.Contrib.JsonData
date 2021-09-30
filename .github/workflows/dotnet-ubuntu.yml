@@ -1,4 +1,4 @@
-name: .NET - CI
+name: .NET - CI (Ubuntu)
 
 on: push
 
