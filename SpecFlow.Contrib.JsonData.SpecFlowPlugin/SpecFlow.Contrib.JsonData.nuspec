@@ -5,11 +5,12 @@
 		<title>SpecFlow.Contrib.JsonData</title>
 		<authors>kazantsev-v</authors>
 		<owners>kazantsev-v</owners>
-		<description>desc</description>
-		<summary>sum</summary>
+		<projectUrl>https://github.com/kazantsev-v/SpecFlow.Contrib.JsonData</projectUrl>
+		<description>Use json files as a data source for scenarios</description>
+		<summary>Use json files as a data source for scenarios</summary>
 		<language>en-US</language>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<tags>specflow</tags>
+		<tags>Specflow external data json</tags>
 		<dependencies>
 			<dependency id="SpecFlow" version="3.9.22"/>
 		</dependencies>
