@@ -1,5 +1,5 @@
 # SpecFlow.Contrib.JsonData
-This package is actualy based on [SpecFlow.ExternalData](https://docs.specflow.org/projects/specflow/en/latest/Guides/externaldata.html) and supports all features described there. 
+This package is based on [SpecFlow.ExternalData](https://docs.specflow.org/projects/specflow/en/latest/Guides/externaldata.html) and supports all features described there. 
 
 I extended it to support Json files as data source
 
