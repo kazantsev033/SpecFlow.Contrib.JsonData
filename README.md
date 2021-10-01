@@ -41,4 +41,4 @@ Json file
 ## Tags
 The following tags can be used for json files:
 - **@DataSource:path-to-file** - Specify file path. The path is a **relative path** to the folder of the feature files
-- **@DataSet:data-set-name** - Specify array of json objects. By default, used first array
+- **@DataSet:data-set-name** - Specify array of json objects. By default, first array is used
