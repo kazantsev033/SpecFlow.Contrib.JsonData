@@ -15,12 +15,12 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
-        protected override DataSource LoadDataSourceFromFilePath(string filePath, string sourceFilePath, string jsonArray)
+        protected override DataSource LoadDataSourceFromFilePath(string filePath, string sourceFilePath, string dataSet)
         {
-            using var stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
+            using FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
             using IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream);
 
-            var result = reader.AsDataSet(new ExcelDataSetConfiguration
+            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration
             {
                 ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
                 {
@@ -28,26 +28,37 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
                 }
             });
 
-            var worksheetsRecord = new DataRecord();
-
-            foreach (System.Data.DataTable resultTable in result.Tables)
+            System.Data.DataTable resultTable = default;
+            try
             {
-                var dataTable = new DataTable(resultTable.Columns.OfType<DataColumn>().Select(c => c.ColumnName).ToArray());
-
-                foreach (DataRow resultTableRow in resultTable.Rows)
+                if (!result.Tables.Contains(dataSet))
                 {
-                    var dataRecord = new DataRecord();
-                    foreach (DataColumn column in resultTable.Columns)
-                    {
-                        dataRecord.Fields[column.ColumnName] = new DataValue(resultTableRow[column]);
-                    }
-                    dataTable.Items.Add(dataRecord);
+                    resultTable = result.Tables[0];
                 }
-
-                worksheetsRecord.Fields[resultTable.TableName] = new DataValue(dataTable);
+                else
+                {
+                    resultTable = result.Tables[dataSet];
+                }
+                
             }
-            
-            return new DataSource(worksheetsRecord, result.Tables[0].TableName);
+            catch (NullReferenceException)
+            {
+                throw new ExternalDataPluginException($"Unable to find worksheet {dataSet} in json file: {filePath}");
+            }
+
+            DataTable dataTable = new DataTable(resultTable.Columns.OfType<DataColumn>().Select(c => c.ColumnName).ToArray());
+
+            foreach (DataRow resultTableRow in resultTable.Rows)
+            {
+                var dataRecord = new DataRecord();
+                foreach (DataColumn column in resultTable.Columns)
+                {
+                    dataRecord.Fields[column.ColumnName] = new DataValue(resultTableRow[column]);
+                }
+                dataTable.Items.Add(dataRecord);
+            }
+
+            return new DataSource(dataTable);
         }
     }
 }
