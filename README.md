@@ -1,6 +1,5 @@
 # SpecFlow.Contrib.JsonData
 ![Nuget](https://img.shields.io/nuget/v/SpecFlow.Contrib.JsonData)
-![Nuget](https://www.nuget.org/packages/SpecFlow.Contrib.JsonData/)
 
 This package is based on [SpecFlow.ExternalData](https://docs.specflow.org/projects/specflow/en/latest/Guides/externaldata.html) and supports all features described there. 
 
