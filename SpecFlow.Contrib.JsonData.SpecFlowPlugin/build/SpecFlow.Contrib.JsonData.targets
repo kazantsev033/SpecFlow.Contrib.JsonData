@@ -1,7 +1,7 @@
 ﻿<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_SpecFlowContribJsonDataGeneratorPluginFramework Condition=" '$(MSBuildRuntimeType)' == 'Core'">netcoreapp2.1</_SpecFlowContribJsonDataGeneratorPluginFramework>
-    <_SpecFlowContribJsonDataGeneratorPluginFramework Condition=" '$(MSBuildRuntimeType)' != 'Core'">net471</_SpecFlowContribJsonDataGeneratorPluginFramework>
+    <_SpecFlowContribJsonDataGeneratorPluginFramework Condition=" '$(MSBuildRuntimeType)' == 'Core'">net5.0</_SpecFlowContribJsonDataGeneratorPluginFramework>
+    <_SpecFlowContribJsonDataGeneratorPluginFramework Condition=" '$(MSBuildRuntimeType)' != 'Core'">net461</_SpecFlowContribJsonDataGeneratorPluginFramework>
 
     <_SpecFlowContribJsonDataGeneratorPluginPath>$(MSBuildThisFileDirectory)\$(_SpecFlowContribJsonDataGeneratorPluginFramework)\SpecFlow.Contrib.JsonData.SpecFlowPlugin.dll</_SpecFlowContribJsonDataGeneratorPluginPath>
 
