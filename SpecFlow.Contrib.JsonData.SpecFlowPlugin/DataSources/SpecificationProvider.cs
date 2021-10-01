@@ -40,7 +40,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.DataSources
             var dataSource = loader.LoadDataSource(dataSourcePath, sourceFilePath, dataSet);
             var fields = GetFields(tagsArray);
 
-            return new ExternalDataSpecification(dataSource, fields, dataSet);
+            return new ExternalDataSpecification(dataSource, fields);
         }
 
         private string GetDataSet(Tag[] tags)
