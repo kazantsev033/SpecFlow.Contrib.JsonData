@@ -14,7 +14,6 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.DataSources
         private const string DATA_FIELD_TAG_PREFIX = "@DataField";
         private const string DATA_FORMAT_TAG_PREFIX = "@DataFormat";
         private const string DATA_SET_TAG_PREFIX = "@DataSet";
-        private const string JSON_ARRAY_TAG_PREFIX = "@JsonArray";
 
         private readonly IDataSourceLoaderFactory _dataSourceLoaderFactory;
         private readonly DataSourceSelectorParser _dataSourceSelectorParser;
@@ -34,14 +33,11 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.DataSources
             if (dataSourcePath == null || tagsArray.Any(t => t.Name.Equals(DISABLE_DATA_SOURCE_TAG, _tagNameComparison)))
                 return null;
             
-            var jsonArray = GetTagValues(tagsArray, JSON_ARRAY_TAG_PREFIX)
-                .LastOrDefault();
-
             var dataFormat = GetDataFormat(tagsArray);
             var dataSet = GetDataSet(tagsArray);
             
             var loader = _dataSourceLoaderFactory.CreateLoader(dataFormat, dataSourcePath);
-            var dataSource = loader.LoadDataSource(dataSourcePath, sourceFilePath, jsonArray);
+            var dataSource = loader.LoadDataSource(dataSourcePath, sourceFilePath, dataSet);
             var fields = GetFields(tagsArray);
 
             return new ExternalDataSpecification(dataSource, fields, dataSet);
