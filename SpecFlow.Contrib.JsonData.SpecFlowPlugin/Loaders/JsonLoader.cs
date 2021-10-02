@@ -39,7 +39,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             {
                 if (jsonArrayName is null)
                 {
-                    return jsonObject.SelectToken("$.*").ToObject<JArray>();
+                    return jsonObject.SelectToken("$.*").ToObject<JArray>(); // Select 1st array
                 }
                 else
                 {
