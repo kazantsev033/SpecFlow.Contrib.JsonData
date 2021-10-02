@@ -50,7 +50,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
 
             foreach (DataRow resultTableRow in resultTable.Rows)
             {
-                var dataRecord = new DataRecord();
+                DataRecord dataRecord = new DataRecord();
                 foreach (DataColumn column in resultTable.Columns)
                 {
                     dataRecord.Fields[column.ColumnName] = new DataValue(resultTableRow[column]);
