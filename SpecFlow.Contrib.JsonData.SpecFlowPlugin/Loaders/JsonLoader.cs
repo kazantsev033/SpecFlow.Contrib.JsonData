@@ -15,8 +15,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
 
         protected override DataSource LoadDataSourceFromFilePath(string filePath, string dataSet)
         {
-            JObject originalJson = JObject.Parse(ReadTextFileContent(filePath));
-            JArray jsonArray = SelectJsonArray(originalJson, dataSet);
+            JArray jsonArray = SelectJsonArray(filePath, dataSet);
 
             List<string> header = jsonArray.First.ToObject<JObject>().Properties().Select(p => p.Name).ToList();
 
@@ -33,8 +32,9 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             return new DataSource(dataTable);
         }
 
-        internal JArray SelectJsonArray(JObject jsonObject, string jsonArrayName)
+        internal JArray SelectJsonArray(string jsonFilePath, string jsonArrayName)
         {
+            JObject jsonObject = JObject.Parse(ReadTextFileContent(jsonFilePath));
             try
             {
                 if (jsonArrayName is null)
@@ -48,7 +48,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             }
             catch (System.NullReferenceException)
             {
-                throw new ExternalDataPluginException($"Unable to find array {jsonArrayName} in json file: {jsonObject}");
+                throw new ExternalDataPluginException($"Unable to find array {jsonArrayName} in json file: {jsonFilePath}");
             }
         }
     }
