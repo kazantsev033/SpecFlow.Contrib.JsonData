@@ -15,7 +15,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
-        protected override DataSource LoadDataSourceFromFilePath(string filePath, string sourceFilePath, string dataSet)
+        protected override DataSource LoadDataSourceFromFilePath(string filePath, string dataSet)
         {
             using FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
             using IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream);

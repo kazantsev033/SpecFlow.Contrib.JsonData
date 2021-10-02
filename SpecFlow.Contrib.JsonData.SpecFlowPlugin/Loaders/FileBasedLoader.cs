@@ -22,12 +22,12 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             return extension != null && _acceptedExtensions.Any(e => e.Equals(extension, StringComparison.InvariantCultureIgnoreCase));
         }
 
-        public virtual DataSource LoadDataSource(string path, string sourceFilePath, string jsonArray)
+        public virtual DataSource LoadDataSource(string path, string sourceFilePath, string dataSet)
         {
             var filePath = ResolveFilePath(path, sourceFilePath);
             try
             {
-                return LoadDataSourceFromFilePath(filePath, sourceFilePath, jsonArray);
+                return LoadDataSourceFromFilePath(filePath, dataSet);
             }
             catch (ExternalDataPluginException)
             {
@@ -39,7 +39,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             }
         }
 
-        protected abstract DataSource LoadDataSourceFromFilePath(string filePath, string sourceFilePath, string jsonArray);
+        protected abstract DataSource LoadDataSourceFromFilePath(string filePath, string dataSet);
 
         private string ResolveFilePath(string path, string sourceFilePath)
         {

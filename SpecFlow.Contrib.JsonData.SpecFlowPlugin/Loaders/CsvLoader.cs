@@ -13,7 +13,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
         {
         }
         
-        protected override DataSource LoadDataSourceFromFilePath(string filePath, string sourceFilePath, string jsonArray)
+        protected override DataSource LoadDataSourceFromFilePath(string filePath, string dataSet)
         {
             var culture = CultureInfo.InvariantCulture;
             var fileContent = ReadTextFileContent(filePath);

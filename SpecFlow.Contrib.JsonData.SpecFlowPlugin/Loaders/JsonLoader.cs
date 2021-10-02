@@ -13,7 +13,7 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
                 
         }
 
-        protected override DataSource LoadDataSourceFromFilePath(string filePath, string sourceFilePath, string dataSet)
+        protected override DataSource LoadDataSourceFromFilePath(string filePath, string dataSet)
         {
             JObject originalJson = JObject.Parse(ReadTextFileContent(filePath));
             JArray jArray;
