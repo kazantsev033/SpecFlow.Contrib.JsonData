@@ -3,7 +3,7 @@ name: .NET - CI
 on: push
 
 jobs:
-  build-ubuntu:
+  build-and-test-ubuntu:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
     - name: Test
       run: dotnet test --configuration Release
   
-  build-windows:
+  build-and-test-windows:
     runs-on: windows-latest
 
     steps:
