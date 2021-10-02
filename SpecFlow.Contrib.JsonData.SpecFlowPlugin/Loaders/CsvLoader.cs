@@ -15,16 +15,16 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
         
         protected override DataSource LoadDataSourceFromFilePath(string filePath, string dataSet)
         {
-            var culture = CultureInfo.InvariantCulture;
-            var fileContent = ReadTextFileContent(filePath);
-            var records = LoadCsvDataTable(fileContent, culture);
+            CultureInfo culture = CultureInfo.InvariantCulture;
+            string fileContent = ReadTextFileContent(filePath);
+            DataTable records = LoadCsvDataTable(fileContent, culture);
             return new DataSource(records);
         }
 
         internal DataTable LoadCsvDataTable(string fileContent, CultureInfo culture)
         {
-            using var reader = new StringReader(fileContent);
-            using var csv = new CsvReader(reader, new CsvConfiguration(culture)
+            using StringReader reader = new StringReader(fileContent);
+            using CsvReader csv = new CsvReader(reader, new CsvConfiguration(culture)
             {
                 TrimOptions = TrimOptions.Trim,
                 MissingFieldFound = null,
@@ -33,10 +33,10 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.Loaders
             
             csv.Read();
             csv.ReadHeader();
-            var dataTable = new DataTable(csv.HeaderRecord);
+            DataTable dataTable = new DataTable(csv.HeaderRecord);
             while (csv.Read())
             {
-                var dataRecord = new DataRecord();
+                DataRecord dataRecord = new DataRecord();
                 foreach (string header in csv.HeaderRecord)
                 {
                     dataRecord.Fields[header] = new DataValue(csv.GetField(header));
