@@ -21,10 +21,6 @@ namespace SpecFlow.Contrib.JsonData.SpecFlowPlugin.DataSources
 
         public DataTable GetExampleRecords(string[] examplesHeaderNames)
         {
-            //TODO: handle hierarchical data
-            if (!DataSource.IsDataTable)
-                throw new ExternalDataPluginException("Hierarchical data sources are not supported yet.");
-
             var dataTable = DataSource.AsDataTable;
 
             var headerNames = examplesHeaderNames ?? GetTargetHeader(dataTable.Header);
