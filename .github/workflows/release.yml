@@ -2,7 +2,7 @@ name: .NET - CI - Release
 
 on:
   workflow_run:
-    workflows: [".NET - CI (Ubuntu)"]
+    workflows: [".NET - CI"]
     branches: [ master ]
     types:
       - completed
