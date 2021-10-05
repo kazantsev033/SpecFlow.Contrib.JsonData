@@ -4,7 +4,7 @@
 		<TargetFrameworks>net461;net5.0</TargetFrameworks>
 		<LangVersion>9.0</LangVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageVersion>1.0.3</PackageVersion>
+		<PackageVersion>1.0.4</PackageVersion>
 		<NuspecFile>$(MSBuildThisFileDirectory)SpecFlow.Contrib.JsonData.nuspec</NuspecFile>
 		<NuspecProperties>version=$(PackageVersion)</NuspecProperties>
 	</PropertyGroup>
